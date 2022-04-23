@@ -22,7 +22,7 @@ int parse_block_size(int argc, char *argv[]) {
 int check_open(char *path, int flags, int mode) {
     int result = open(path, flags, mode);
     if (result == -1) {
-		perror(ERROR_FILE_MSG);
+		perror("Error 'open' file");
 		exit(-1);
     }
     return result;
@@ -69,9 +69,9 @@ void close_file(int fd)
 int main(int argc, char *argv[]) {
 	char *f1;
 	char *f2;
-    int fd1 = 0;
-    int fd2 = 0;
-    int blockSize = parse_block_size(argc, argv);
+	int fd1 = 0;
+	int fd2 = 0;
+	int blockSize = parse_block_size(argc, argv);
 	if (optind < argc) {
 		f1 = argv[optind++];
 	}
